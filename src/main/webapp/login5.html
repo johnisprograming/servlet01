@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>로그인창</title>
+		<script src= "jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+			/* 자바스크립트로 서블릿에 요청하기 */
+		    /* jQuery 사용  */
+		    $(document).ready(function(){
+		    	$('#login').on('click', function(){
+		    		var id = $('#user_id').val();
+		    		var pw = $('#user_pw').val();
+		    		
+		    		if(id == "" || pw == ""){
+						alert("아이디와 비밀번호는 필수입니다. 55");		
+						return false;
+					}else {
+						//$('#frmLogin').attr('method', 'post').attr('action', 'login3').submit();
+						$('#frmLogin').attr({
+							method: "post",
+							action: 'login3'
+						}).submit();
+					}	
+		    	});		    	
+		    });		
+		</script>
+	</head>
+	<body>
+	  <form id="frmLogin" name ="frmLogin">
+		   아이디  :<input type="text" id ="user_id" name="user_id"><br>
+	     비밀번호:<input type="password" id ="user_pw" name="user_pw"><br>
+	    <input type="button" id="login" value="로그인">  <input type="reset" value="다시입력">
+	  </form>
+	</body>
+</html>
+</html>
