@@ -27,22 +27,22 @@ public class MemberSelectServlet extends HttpServlet {
 	}
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// (1) ìš”ì²­ ë°›ìŒ
+		// (1) ¿äÃ» ¹ŞÀ½
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();	
-		
-		// (2) ë¹„ì¦ˆë‹ˆìŠ¤ ë¡œì§ ì²˜ë¦¬ : DAO í˜¸ì¶œí•˜ê³  ê²°ê³¼ ë°›ì•„ì˜´
+	
+		// (2) ºñÁî´Ï½º ·ÎÁ÷ Ã³¸® : DAO È£ÃâÇÏ°í °á°ú ¹Ş¾Æ¿È
 		MemberDAO dao = new MemberDAO();
 		
 		ArrayList<MemberVO> memList = dao.memberSelect();
 		
 		
-		// (3) ì‘ë‹µ ì²˜ë¦¬ : í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ê²°ê³¼ ì „ì†¡
+		// (3) ÀÀ´ä Ã³¸® : Å¬¶óÀÌ¾ğÆ®¿¡°Ô °á°ú Àü¼Û
 		out.print("<html><head></head><body>");
 		out.print("<table border=1><tr align='center' bgcolor='gold'>");
-		out.print("<td>ì•„ì´ë””</td><td>ë¹„ë°€ë²ˆí˜¸</td><td>ì´ë¦„</td>" 
-				+ "<td>ì´ë©”ì¼</td><td>ê°€ì…ì¼</td></tr>");
+		out.print("<td>¾ÆÀÌµğ</td><td>ºñ¹Ğ¹øÈ£</td><td>ÀÌ¸§</td>" 
+				+ "<td>ÀÌ¸ŞÀÏ</td><td>°¡ÀÔÀÏ</td></tr>");
 		
 		for(int i=0; i<memList.size(); i++) {
 			MemberVO vo = (MemberVO) memList.get(i);
@@ -52,7 +52,7 @@ public class MemberSelectServlet extends HttpServlet {
 			String email = vo.getEmail();
 			Date joinDate = vo.getJoinDate();
 			
-			// í•œ í–‰ì”© ì¶œë ¥
+			// ÇÑ Çà¾¿ Ãâ·Â
 			out.print("<tr><td>" + id + "</td><td>" +
 												     pwd + "</td><td>" +
 													 name + "</td><td>" +
@@ -64,6 +64,7 @@ public class MemberSelectServlet extends HttpServlet {
 	}
 
 }
+
 
 
 

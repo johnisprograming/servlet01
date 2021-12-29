@@ -36,8 +36,8 @@ public class BookSelectServlet extends HttpServlet {
 		
 		out.print("<html><head></head><body>");
 		out.print("<table border=1><tr align='center' bgcolor='gold'>");
-		out.print("<td>ë„ì„œë²ˆí˜¸</td><td>ë„ì„œëª…</td><td>ì €ì</td>"
-				+"<td>ê°€ê²©</td><td>ë°œí–‰ì¼</td><td>ì¶œíŒì‚¬ë²ˆí˜¸</td></tr>");
+		out.print("<td>µµ¼­¹øÈ£</td><td>µµ¼­¸í</td><td>ÀúÀÚ</td>"
+				+"<td>°¡°İ</td><td>¹ßÇàÀÏ</td><td>ÃâÆÇ»ç¹øÈ£</td></tr>");
 		
 		for(int i=0; i<bookList.size(); i++) {
 			BookVO vo = (BookVO) bookList.get(i);

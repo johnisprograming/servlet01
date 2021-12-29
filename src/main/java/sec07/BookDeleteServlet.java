@@ -1,4 +1,4 @@
-package sec06;
+package sec07;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,27 +10,28 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class MemberDeleteServlet
  */
-@WebServlet("/memberDelete")
-public class MemberDeleteServlet extends HttpServlet {
+@WebServlet("/bookDelete")
+public class BookDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
 
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String id = request.getParameter("id");
+		String id = request.getParameter("no");
 		
-		MemberDAO dao = new MemberDAO();
-		dao.memberDelete(id);
+		BookDAO dao = new BookDAO();
+		dao.bookDelete(id);
 		
-		// select 결과 페이지로 포워딩
-		response.sendRedirect("memberSelect2");
+		response.sendRedirect("bookSelect2");
 	}
 
 }

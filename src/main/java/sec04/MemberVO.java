@@ -9,11 +9,11 @@ public class MemberVO {
 	private String email;
 	private Date joinDate;
 	
-	// ë””í´íŠ¸ ìƒì„±ì
+	// µğÆúÆ® »ı¼ºÀÚ
 	public MemberVO() { }
 	
-	// í˜„ì¬ëŠ” ë§¤ê°œë³€ìˆ˜ ìˆëŠ” ìƒì„±ì í•„ìš” ì—†ìŒ
-	public MemberVO(String id, String pwd, String name, String email, Date joinDate) {		
+	// ÇöÀç´Â ¸Å°³º¯¼ö ÀÖ´Â »ı¼ºÀÚ ÇÊ¿ä ¾øÀ½
+	public MemberVO(String id, String pwd, String name, String email, Date joinDate) {
 		this.id = id;
 		this.pwd = pwd;
 		this.name = name;
@@ -60,6 +60,6 @@ public class MemberVO {
 
 	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
-	}
+	}	
 	
 }

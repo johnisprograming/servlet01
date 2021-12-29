@@ -24,26 +24,29 @@ public class MemberInsertServlet extends HttpServlet {
 	}
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ìš”ì²­ ë°›ìœ¼ë©´ì„œ ë°ì´í„° ì „ë‹¬ ë°›ìŒ
+		// ¿äÃ» ¹ŞÀ¸¸é¼­ µ¥ÀÌÅÍ Àü´Ş ¹ŞÀ½
 		request.setCharacterEncoding("utf-8");
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		String name = request.getParameter("name"); 
 		String email = request.getParameter("email");
 		
-		// MemberVOì— ì €ì¥
+		// MemberVO¿¡ ÀúÀå
 		MemberVO vo = new MemberVO();
 		vo.setId(id);
 		vo.setPwd(pwd);
 		vo.setName(name);
 		vo.setEmail(email);
 		
-		// ë˜ëŠ” ìƒì„±ì ì‚¬ìš©
+		// ¶Ç´Â »ı¼ºÀÚ »ç¿ë
 		//MemberVO vo = new MemberVO(id, pwd, name, email);
 		
-		// íšŒì› ì •ë³´ ë“±ë¡ : memberInsert() í˜¸ì¶œ  -> DBì— ì €ì¥
+		// È¸¿ø Á¤º¸ µî·Ï : memberInsert() È£Ãâ  -> DB¿¡ ÀúÀå
 		MemberDAO dao = new MemberDAO();
 		dao.memberInsert(vo);		
+		
+		// select °á°ú ÆäÀÌÁö·Î Æ÷¿öµù
+		response.sendRedirect("memberSelect2");
 	}
 
 }

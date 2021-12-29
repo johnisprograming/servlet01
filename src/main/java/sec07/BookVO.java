@@ -1,33 +1,74 @@
 package sec07;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 
-/**
- * Servlet implementation class BookVO
- */
-@WebServlet("/bookVO")
-public class BookVO extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class BookVO {
+	private String no;
+	private String name;
+	private String author;
+	private int price;
+	private String date;
+	private String pubNo;
+	
+	public BookVO() {}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	public BookVO(String no, String name, String author, int price, String date, String pubNo) {
+		super();
+		this.no = no;
+		this.name = name;
+		this.author = author;
+		this.price = price;
+		this.date = date;
+		this.pubNo = pubNo;
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	public String getNo() {
+		return no;
 	}
+
+	public void setNo(String no) {
+		this.no = no;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getPubNo() {
+		return pubNo;
+	}
+
+	public void setPubNo(String pubNo) {
+		this.pubNo = pubNo;
+	}
+	
 
 }

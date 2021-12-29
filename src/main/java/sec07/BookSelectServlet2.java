@@ -11,52 +11,55 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class BookSelectServlet
- */
-@WebServlet("/bookSelect")
-public class BookSelectServlet extends HttpServlet {
+@WebServlet("/bookSelect2")
+public class BookSelectServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doProcess(request, response);	
+		doProcess(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
-
+	
+	// ¼­¹ö °á°ú ---> Å¬¶óÀÌ¾ğÆ®¿¡°Ô Àü¼Û : ÀÀ´ä response
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// (1) ¿äÃ» ¹ŞÀ½
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
+		// (2) ºñÁî´Ï½º ·ÎÁ÷ Ã³¸® : DAO È£ÃâÇÏ°í °á°ú ¹Ş¾Æ¿È
 		BookDAO dao = new BookDAO();
+		
 		ArrayList<BookVO> bookList = dao.bookSelect();
+		
+		// (3) ÀÀ´ä Ã³¸® : Å¬¶óÀÌ¾ğÆ®¿¡°Ô °á°ú Àü¼Û
 		
 		out.print("<html><head></head><body>");
 		out.print("<table border=1><tr align='center' bgcolor='gold'>");
-		out.print("<td>ë„ì„œë²ˆí˜¸</td><td>ë„ì„œëª…</td><td>ì €ì</td>"
-				+"<td>ê°€ê²©</td><td>ë°œí–‰ì¼</td><td>ì¶œíŒì‚¬ë²ˆí˜¸</td></tr>");
+		out.print("<td>µµ¼­¹øÈ£</td><td>µµ¼­¸í</td><td>ÀúÀÚ</td>"
+				+ "<td>µµ¼­°¡°İ</td><td>¹ßÇàÀÏ</td><td>ÃâÆÇ»ç¹øÈ£</td></tr>");
 		
-		for(int i=0; i<bookList.size(); i++) {
+		for(int i = 0 ; i < bookList.size() ; i++) {
 			BookVO vo = (BookVO) bookList.get(i);
-			String bookNo = vo.getBookNo();
-			String bookName = vo.getBookName();
-			String bookAuthor = vo.getBookAuthor();
-			int bookPrice = vo.getBookPrice();
-			Date bookDate = vo.getBooDate();
+			String no = vo.getNo();
+			String name = vo.getName();
+			String author = vo.getAuthor();
+			int price = vo.getPrice();
+			String date = vo.getDate();
 			String pubNo = vo.getPubNo();
 			
-			out.print("<tr><td>" + bookNo + "</td><td>"
-					             + bookName + "</td><td>"
-					             + bookAuthor + "</td><td>"
-					             + bookPrice + "</td><td>"
-					             + bookDate + "</td><td>"
-					             + pubNo + "</td></tr>");
+			// ÇÑ Çà¾¿ Ãâ·Â
+			out.print("<tr><td>" + no + "</td><td>" + name + "</td><td>" +
+													author + "</td><td>" + price + "</td><td>" +
+													date + "</td><td>" + pubNo + "</td><td>" +
+													"<a href='/Servlet01/bookDelete?no=" + no + "'>»èÁ¦</a></td></tr>");
 		}
 		
 		out.print("</table></body></html>");
 	}
-
+	
 }

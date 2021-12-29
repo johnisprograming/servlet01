@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class BookDAO {
-	// DB ì—°ê²°
+	// DB ¿¬°á
 	private Connection conDB() {
 		Connection con = null;
 		
@@ -21,7 +21,7 @@ public class BookDAO {
 			
 			con = DriverManager.getConnection(url, user, pwd);
 			
-			if(con != null) System.out.println("DB ì—°ê²° ì„±ê³µ!");
+			if(con != null) System.out.println("DB ¿¬°á ¼º°ø!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -29,7 +29,7 @@ public class BookDAO {
 		return con;
 	}
 	
-	// ë„ì„œ ì •ë³´ ì¡°íšŒ ë©”ì„œë“œ
+	// µµ¼­ Á¤º¸ Á¶È¸ ¸Ş¼­µå
 	public ArrayList<BookVO> bookSelect() {
 		Connection con = null;
 		PreparedStatement pstmt = null;

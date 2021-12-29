@@ -1,9 +1,10 @@
-package sec06;
+package sec09;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,14 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import sec04.MemberDAO;
-import sec04.MemberVO;
-
 /**
- * Servlet implementation class MemberSelectServlet2
+ * Servlet implementation class MemverViewServlet
  */
-@WebServlet("/memberSelect2")
-public class MemberSelectServlet2 extends HttpServlet {
+@WebServlet("/memView")
+public class MemverViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,12 +33,10 @@ public class MemberSelectServlet2 extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();	
 	
-		// (2) 비즈니스 로직 처리 : DAO 호출하고 결과 받아옴
-		MemberDAO dao = new MemberDAO();
-		
-		ArrayList<MemberVO> memList = dao.memberSelect();
-		
-		
+		// (2) 비즈니스 로직 처리 :  바인딩 된 값 추출
+		List memList = (List) request.getAttribute("memList");		
+		//ArrayList<MemberVO> memList = (ArrayList<MemberVO>) request.getAttribute("memList");	
+				
 		// (3) 응답 처리 : 클라이언트에게 결과 전송
 		out.print("<html><head></head><body>");
 		out.print("<table border=1><tr align='center' bgcolor='gold'>");

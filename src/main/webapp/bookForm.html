@@ -2,20 +2,56 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>도서정보등록</title>
+		<title>bookForm 예제</title>
 	</head>
 	<body>
-	  <form name="frmLogin" method="post" action="bookForm" >
-		   도서번호  :<input type="text" name="book_no"><br>
-	     도서명 :<input type="text" name="book_name" ><br>
-	     저자 :<input type="text" name="author" ><br>
-	     가격 :<input type="text" name="price" ><br>
-	     발행일 :<input type="text" name="year" >년
-	     		<input type="text" name="month" >월
-	     		<input type="text" name="day" >일<br>
-	     재고 :<input type="text" name="stock" ><br>
-	     출판사번호 :<input type="text" name="number" ><br>
-	    <input type="submit" value="등록">  <input type="reset" value="취소">
-	  </form>
+				<h2>도서정보 출력</h2>
+			<form method="post" action="bookInsert">
+				<table>
+					<tr>
+						<th>도서번호</th>
+						<td>
+						<input type="text" name="bookNo">
+					</tr>
+					<tr>
+						<th>도서명</th>
+						<td>
+						<input type="text" name="bookName">
+					</tr>
+					<tr>
+						<th>저자</th>
+						<td>
+						<input type="text" name="bookAuthor">
+					</tr>
+					<tr>
+						<th>가격</th>
+						<td>
+						<input type="text" name="bookPrice">
+					</tr>
+					<tr>
+						<th>발행일</th>
+						<td>
+						<input type="text" name="bookYear" size="4">년
+						<input type="text" name="bookMonth" size="2">월
+						<input type="text" name="bookDate" size="2">일
+					</tr>
+					<tr>
+						<th>재고</th>
+						<td>
+						<input type="text" name="qtyNo">
+					</tr>
+					<tr>
+						<th>출판사번호</th>
+						<td>
+						<input type="text" name="pubNo">
+					</tr>
+					<tr>
+						<td>
+							<input type="submit" name="submit" value="등록">
+							<input type="reset" name="reset" value="취소">
+						</td>
+					</tr>
+				</table>
+			</form>	
 	</body>
 </html>

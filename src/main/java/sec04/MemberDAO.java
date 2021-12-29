@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class MemberDAO {
-	// DB ì—°ê²° ë‹´ë‹¹ ë©”ì†Œë“œ : DB ì—°ê²°í•˜ê³  Connection ê°ì²´ ë°˜í™˜
+	// DB ¿¬°á ´ã´ç ¸Ş¼Òµå : DB ¿¬°áÇÏ°í Connection °´Ã¼ ¹İÈ¯
 	private Connection connDB() {
 		Connection con = null;
 		
@@ -23,7 +23,7 @@ public class MemberDAO {
 			con = DriverManager.getConnection(url, user, pwd);
 			
 			if(con != null) {
-				System.out.println("DB ì—°ê²° ì„±ê³µ!");
+				System.out.println("DB ¿¬°á ¼º°ø!");
 			}
 			
 		} catch (Exception e) {
@@ -34,8 +34,8 @@ public class MemberDAO {
 		return con;		
 	}
 	
-	// íšŒì› ì •ë³´ ì¡°íšŒ ë©”ì†Œë“œ (ì „ì²´ íšŒì› ì •ë³´ SELECT í•´ì„œ ë°˜í™˜ : MemberVO ë°˜í™˜)
-	//MemberVOë¥¼ ì—¬ëŸ¬ í–‰ ë°˜í™˜ : ArrayList<MemberVO>
+	// È¸¿ø Á¤º¸ Á¶È¸ ¸Ş¼Òµå (ÀüÃ¼ È¸¿ø Á¤º¸ SELECT ÇØ¼­ ¹İÈ¯ : MemberVO ¹İÈ¯)
+	//MemberVO¸¦ ¿©·¯ Çà ¹İÈ¯ : ArrayList<MemberVO>
 	public ArrayList<MemberVO> memberSelect(){
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -50,15 +50,15 @@ public class MemberDAO {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			
-			while(rs.next()) { // ê²°ê³¼ ì„¸íŠ¸ì—ì„œ í•œ í–‰ì”© ì²˜ë¦¬
-				// í•œ í–‰(íšŒì› 1ëª…ë‹¹) ì²˜ë¦¬ 
+			while(rs.next()) { // °á°ú ¼¼Æ®¿¡¼­ ÇÑ Çà¾¿ Ã³¸®
+				// ÇÑ Çà(È¸¿ø 1¸í´ç) Ã³¸® 
 				String id = rs.getString("memId");
 				String pwd = rs.getString("memPwd");
 				String name = rs.getString("memName");
 				String email = rs.getString("memEmail");
 				Date joinDate = rs.getDate("memJoinDate");
 				
-				// í•œ í–‰ ì •ë³´ ê°€ì ¸ì™€ì„œ MemberVOì— ì €ì¥ : setter ë©”ì†Œë“œ ì‚¬ìš©
+				// ÇÑ Çà Á¤º¸ °¡Á®¿Í¼­ MemberVO¿¡ ÀúÀå : setter ¸Ş¼Òµå »ç¿ë
 				MemberVO vo = new MemberVO();
 				vo.setId(id);
 				vo.setPwd(pwd);
@@ -66,7 +66,7 @@ public class MemberDAO {
 				vo.setEmail(email);
 				vo.setJoinDate(joinDate);
 				
-				// ê° MemberVOë¥¼ ArrayListì— ì¶”ê°€(ì €ì¥)
+				// °¢ MemberVO¸¦ ArrayList¿¡ Ãß°¡(ÀúÀå)
 				memList.add(vo);				
 			}		
 		} catch (Exception e) {
@@ -88,6 +88,7 @@ public class MemberDAO {
 	}
 	
 }
+
 
 
 

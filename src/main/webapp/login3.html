@@ -3,31 +3,33 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>로그인창</title>
-		<script type = "text/javascript">
-			/* 자바스크립트로 서블릿에 요청하기*/
-			/* DOM 사용 */
-			window.onload = function(){
-				document.getElementById('frmLogin').onsubmit = function(){
+		<script type="text/javascript">
+			/* 자바스크립트로 서블릿에 요청하기 */
+		    /* DOM 사용  */
+		    window.onload = function() {	
+				document.getElementById('frmLogin').onsubmit = function() {
 					
-					var id = document.getElementById('user_id');
-					var pw = document.getElementById('user_pw');
-					
-					if(id.value == "" || pw.value == ""){
-						alert("아이디와 비밀번호는 필수입니다.");
-					}else {
-						frmLogin.method = "post";
-						frmLogin.action +"login3";
-						frmLogin.submit();
-					}
-				};	// onsubmit 끝
-			};	// window.onload 끝
-			
+				var id = document.getElementById('user_id');	
+				var pw = document.getElementById('user_pw');	
+				
+				if(id.value == "" || pw.value == ""){
+					alert("아이디와 비밀번호는 필수입니다.");		
+					return false;
+				}else {
+					frmLogin.method = "post";
+					frmLogin.action = "login3";
+					frmLogin.submit();
+				}					
+				
+			};	 // onsubmit 끝
+		};  // window.onload 끝		
+		
 		</script>
 	</head>
 	<body>
-	  <form name="frmLogin" method="post" action="login" >
-		   아이디  :<input type="text" name="user_id" id="user_id"><br>
-	     비밀번호:<input type="password" name="user_pw" id="user_pw"><br>
+	  <form id="frmLogin" name ="frmLogin">
+		   아이디  :<input type="text" name="user_id" id ="user_id"><br>
+	     비밀번호:<input type="password" name="user_pw" id ="user_pw" ><br>
 	    <input type="submit" value="로그인">  <input type="reset" value="다시입력">
 	  </form>
 	</body>
